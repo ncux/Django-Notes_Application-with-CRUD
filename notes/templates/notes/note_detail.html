@@ -1,0 +1,19 @@
+{% extends 'notes/base.html' %}
+
+
+{% block content %}
+
+    <div class=" row mx-auto my-3">
+        <div class="col-sm-offset-3 col-sm-6 mx-auto">
+             <h2 class="text-left">{{ note.title }}</h2> <br>
+             <div class="thumbnail"><img src="{{ note.image.url }}" alt="{{ note.title }}" style="width: 100%; height: auto"></div> <br>
+             <p class="text-left">Created on: {{ note.created }}</p>
+             <p class="lead text-left">{{ note.description }}</p>
+             <p class="text-left">Last updated {{ note.updated | timesince }} ago.</p>
+             <a href="{% url 'notes:update-note' note.id %}" class="btn btn-info">Update</a>  <a href="{% url 'notes:delete-note' note.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+
+
+
+{% endblock %}

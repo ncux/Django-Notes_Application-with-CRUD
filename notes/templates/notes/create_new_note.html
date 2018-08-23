@@ -1,0 +1,21 @@
+{% extends 'notes/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class=" row mx-auto mt-3">
+        <div class="col-sm-offset-3 col-sm-6 mx-auto">
+            <h2 class="my-4">Create a new note</h2>
+            <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+
+                {{ form | crispy }}
+                <button type="submit" class="btn btn-success">Save</button>
+
+            </form>
+        </div>
+    </div>
+
+
+
+{% endblock %}

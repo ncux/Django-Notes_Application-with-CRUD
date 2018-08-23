@@ -1,0 +1,27 @@
+{% extends 'notes/base.html' %}
+
+
+{% block content %}
+
+
+    <div class=" row mx-auto mt-4">
+        <div class="col-sm-offset-3 col-sm-6 mx-auto">
+            <h2>User notes</h2> <br>
+
+            <table class="table">
+                <tr>
+                    <th>Title</th><th>User</th><th>Date created</th>
+                </tr>
+                {% for note in notes %}
+                    <tr>
+                        <td><a href="{% url 'notes:note-detail' note.id %}" target="_blank">{{ note.title }}</a></td><td>{{ note.user }}</td><td>{{ note.created }}</td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+
+        </div>
+    </div>
+
+
+{% endblock %}
